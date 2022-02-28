@@ -33,24 +33,26 @@ if( isset($data['do_login']) )
 ?>
 
 
-<form action="login.php" method="POST">
 
-    <p>
-        <p><strong>E-mail</strong>:</p>
-        <input type="email" name="email" value="<?php echo @$data['email']; ?>">
-    </p>
+<link rel="stylesheet" href="Slogin.css">
+<body>
+    <form action="login.php" method="POST">
+        <div class="form1">
+            <h1>Вход</h1>
+            <div class="input-form">
+                <input type="email" name="email" placeholder="E-mail" value="<?php echo @$data['email']; ?>">
+            </div>
+            <div class="input-form"> 
+                <input type="password" name="password" placeholder="Пароль" value="<?php echo @$data['password']; ?>">
+            </div>
+            <div class="input-form">
+                <input type="submit" name="do_login" value="Войти">
+            </div>
+        </div>
+    </form>
+</body>
 
-    <p>
-        <p><strong>Пароль</strong>:</p>
-        <input type="password" name="password" value="<?php echo @$data['password']; ?>">
-    </p>
-
-    <p>
-        <button type="submit" name="do_login">Войти</button>
-    </p>
 
 
-
-</form>
 
 

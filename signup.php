@@ -53,7 +53,7 @@ if( isset($data['do_signup']) )
         $user->passport = $data['passport'];
         $user->passport_2 = $data['passport_2'];
         R::store($user);
-        echo '<div style="color: green;">Регистрация прошла успешно!</div><hr>';
+        echo '<div style="color: green;">Регистрация прошла успешно!<br/>Перейти на <a href="/">главную</a></div><hr>';
 
     } else
     {
@@ -65,52 +65,53 @@ if( isset($data['do_signup']) )
 
 ?>
 
+<link rel="stylesheet" href="Ssignup.css">
+<body>
 <form action="/signup.php" method="POST">
-    <p>
-        <p><strong>Ваше ФИО</strong>:</p>
-        <input type="text" name="login" value="<?php echo @$data['login']; ?>">
-    </p>
+    <div class="form1">
+        <h1>Регистрация</h1>
+        <div class="input-form">
+            <input type="text" name="login" placeholder="ФИО" value="<?php echo @$data['login']; ?>">
+        </div>
 
-    <p>
-        <p><strong>Ваш e-mail</strong>:</p>
-        <input type="email" name="email" value="<?php echo @$data['email']; ?>"> 
-    </p>
+        <div class="input-form">
+            <input type="email" name="email" placeholder="E-mail" value="<?php echo @$data['email']; ?>"> 
+        </div>
+        
+        <div class="input-form">
 
-    <p>
-        <p><strong>Ваш пароль</strong>:  
-        <p><?php
-        $chars="qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM!@#$%^&*()-";
-        $max=15;
-        $size=StrLen($chars) -1;
-        $password=null;
-            while($max--)
-            $password.=$chars[rand(0,$size)];
-        echo "Сгенирированный пароль: ".$password.""
-    ?></p>
-    </p> 
-        <input type="password" name="password" value="<?php echo @$data['password']; ?>">
-    </p>
+            <p><?php
+            $chars="qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM!@#$%^&*()-";
+            $max=15;
+            $size=StrLen($chars) -1;
+            $password=null;
+                while($max--)
+                $password.=$chars[rand(0,$size)];
+            echo 'Сгенирированный пароль: '.$password.""?></p>
+        </div>
 
-    <p>
-        <p><strong>Пароль ещё раз</strong>:</p>
-        <input type="password" name="password_2" value="<?php echo @$data['password_2']; ?>">
-    </p>
+        <div class="input-form">
+            <input type="password" name="password" placeholder="Пароль" value="<?php echo @$data['password']; ?>">
+        </div>
 
-    <p>
-        <p><strong>Серия вашего паспорта</strong>:</p>
-        <input type="passport" name="passport" value="<?php echo @$data['passport']; ?>">
-    </p>
+        <div class="input-form">
+            <input type="password" name="password_2" placeholder="Пароль ещё раз" value="<?php echo @$data['password_2']; ?>">
+        </div>
 
-    <p>
-        <p><strong>Номер вашего паспорта</strong>:</p>
-        <input type="passport" name="passport_2" value="<?php echo @$data['passport_2']; ?>">
-    </p>
+        <div class="input-form">
+            <input type="passport" name="passport" placeholder="Серия паспорта" value="<?php echo @$data['passport']; ?>">
+        </div>
 
+        <div class="input-form">
+            <input type="passport" name="passport_2" placeholder="Номер паспорта" value="<?php echo @$data['passport_2']; ?>">
+        </div>
 
-    <p>
-        <button type="submit" name="do_signup">Зарегистрироваться</button>
-    </p>
+        <div class="input-form">
+            <input type="submit" name="do_signup" value="Зарегистрироваться">
+        </div>
+    </div>
 </form>
+</body>
 
 
 
